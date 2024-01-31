@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tool-collect-data/static/css/main.c63c7eba.css",
+    "main.js": "/tool-collect-data/static/js/main.fb4fae17.js",
+    "index.html": "/tool-collect-data/index.html",
+    "main.c63c7eba.css.map": "/tool-collect-data/static/css/main.c63c7eba.css.map",
+    "main.fb4fae17.js.map": "/tool-collect-data/static/js/main.fb4fae17.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c63c7eba.css",
+    "static/js/main.fb4fae17.js"
+  ]
+}
