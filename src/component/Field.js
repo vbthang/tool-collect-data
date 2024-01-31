@@ -1,11 +1,12 @@
 import React from 'react'
 const Field = (props) => {
-  return (
-    <div className='field'>
-        <h3 className = 'label'>{props.name}</h3>
-        <input/>
-    </div>
-  )
+    return (
+        <div className={props.col}>
+                <h3 className='label fs-5'>{props.name}</h3>
+                <input className='input' id={`'${props.id}'`} placeholder={props.placeholder} type="text"/>
+        </div>
+
+    )
 }
 
 export default Field
