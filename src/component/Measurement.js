@@ -6,7 +6,7 @@ const Measurement = () => {
   const volumeFields = Object.values(data['volume']);
   const linearFields = Object.values(data['linear']);
   return (
-    <div className = 'detail col-md-7 col-12 my-4'>
+    <div className = 'detail col-md-6 col-12 my-4'>
         <h2 className='fs-4 bg-danger-subtle rounded p-2'>Volume:</h2>
         <div className = 'volume row mb-4'>
           {volumeFields.map((field) => {

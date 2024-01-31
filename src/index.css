@@ -39,12 +39,12 @@ h4{
   padding: 10px 0;
 }
 
-/* input{
+input{
   height: 30px;
   width: 250px;
-  border-radius: 12px;
+  border-radius: 5px;
   border: 0.5px solid rgb(14, 15, 15);
-} */
+}
 
 .fieldimage{
   display: flex;

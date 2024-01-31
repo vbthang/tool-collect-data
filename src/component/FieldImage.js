@@ -91,9 +91,9 @@ const FieldImage = (props) => {
 
 
   return (
-    <div className='fieldimage'>
-      <div>
-        <h4 className='label'>{props.name}</h4>
+    <div className='fieldimage flex row'>
+      <div className=''>
+        <h4>{props.name}</h4>
         <input type="file" ref={fileInput} style={{ display: 'none' }} onChange={FileChange} />
         <input type="text" value={selectedFileName} readOnly onClick={chooseButtonClick} />
       </div>

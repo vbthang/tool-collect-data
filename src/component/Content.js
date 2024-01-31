@@ -1,10 +1,13 @@
 import React from 'react'
 import Measurement from './Measurement'
+import ChooseImage from './ChooseImage'
 
 const Content = () => {
   return (
     <div className='row'>
-        <div className='col-md-5 col-12'>Ánh</div>
+        <div className='col-md-6 col-12'>
+          <ChooseImage />
+        </div>
         <Measurement />
     </div>
   )

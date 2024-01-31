@@ -6,8 +6,8 @@ const ChooseImage = () => {
     <div>
         <div className = 'image'>
             <FieldImage name='Front Image'/>
-            <FieldImage name='Horizontal Image'/>
-            <FieldImage name='Following Image'/>
+            <FieldImage name='Side Image'/>
+            <FieldImage name='Back Image'/>
         </div>
     </div>
   )
