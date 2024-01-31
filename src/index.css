@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.pt-8{
+  padding-top: 80px;
 }
 
 h1{
@@ -29,12 +39,12 @@ h4{
   padding: 10px 0;
 }
 
-input{
+/* input{
   height: 30px;
   width: 250px;
   border-radius: 12px;
   border: 0.5px solid rgb(14, 15, 15);
-}
+} */
 
 .fieldimage{
   display: flex;
@@ -65,4 +75,11 @@ button:hover{
 }
 .image{
   margin: 0 100px;
+}
+
+.input{
+  width: 150px;
+  line-height: 20px;
+  font-size: 14px;
+  padding: 5px;
 }

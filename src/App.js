@@ -1,9 +1,12 @@
+import Content from './component/Content';
 import Header from './component/Header';
+import Measurement from './component/Measurement';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
+      <Content />
     </div>
   );
 }
