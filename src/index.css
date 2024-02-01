@@ -25,10 +25,17 @@ h1{
   margin: 5px;
 }
 
-.Info{
+.info{
   display: flex;
-  margin: 50px;
   justify-content: space-around;
+}
+@media (max-width: 768px) {
+  .info {
+    flex-direction: column; 
+  }
+  .field {
+    width: 100%; 
+  }
 }
 
 h4{
@@ -43,7 +50,6 @@ input{
   font-size: 14px;
   padding: 5px;
 }
-
 
 .fieldimage{
   display: flex;
@@ -72,14 +78,28 @@ button:hover{
   border: 1px solid rgb(29, 26, 233);
  
 }
-/* .image{
-  margin: 0 100px;
-} */
 
-.input{
- 
+@media (min-width:992px) {
+  .volume, .linear{
+    padding: 0 70px !important;
+  }
 }
 
-#height, #weight{
-  width: 50px !important;
+@media (min-width:767px) and (max-width:1200px) {
+  .fieldimage{
+    flex-direction: column;
+  }
+  h4{
+    width: 70px !important;
+  }
+  .button{
+    align-self:self-start;
+  }
+}
+
+@media (min-width: 400px) {
+  body {
+    font-size: 12px; 
+  }
+
 }
