@@ -1,10 +1,10 @@
 export const data = {
     'info' : {
         'name' : {
-            id: 'name',
+            id: `name`,
             name: 'Name',
             placeholder: 'Name',
-            require: true
+            require: false
         },
         'height' : {
             id: 'height',
