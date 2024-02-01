@@ -79,6 +79,17 @@ button:hover{
  
 }
 
+.fieldimage h4 {
+  white-space: nowrap; /* Giữ cho tiêu đề trên một dòng */
+}
+
+@media (max-width: 315px){
+  .fieldimage h4 {
+    font-size: 14px; /* Đặt kích thước phông chữ mong muốn cho màn hình nhỏ */
+  }
+}
+
+
 @media (min-width:992px) {
   .volume, .linear{
     padding: 0 70px !important;
