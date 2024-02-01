@@ -7,11 +7,11 @@ const Header = () => {
   const infoFields = Object.values(data['info']);
 
   return (
-    <div className='row'>
-      <h1 className='container-fluid bg-success-subtle fixed-top text-center fw-semibold py-2'>Collect Data</h1>
-      <div className='info container-fluid row d-flex justify-content-around pt-8'>
+    <div className='row container-fluid'>
+      <h1 className='bg-success-subtle fixed-top text-center fw-semibold py-2'>Collect Data</h1>
+      <div className='info d-flex justify-content-around pt-8'>
         {infoFields.map((field) => {
-          return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`col-2`}/>;
+          return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`col-2 field`}/>;
         })}
       </div>
     </div>

@@ -91,16 +91,16 @@ const FieldImage = (props) => {
 
 
   return (
-    <div className='fieldimage flex row'>
-      <div className=''>
+    <div className='fieldimage d-flex row container-fluid justify-content-around'>
+      <div className='col-7'>
         <h4>{props.name}</h4>
         <input type="file" ref={fileInput} style={{ display: 'none' }} onChange={FileChange} />
         <input type="text" value={selectedFileName} readOnly onClick={chooseButtonClick} />
       </div>
 
-      <div className='button'>
+      <div className='button mt-2 col-5'>
         <button onClick={chooseButtonClick}>Choose</button>
-        <button onClick={cameraButtonClick}>Camera</button>
+        {/* <button onClick={cameraButtonClick}>Camera</button> */}
       </div>
       <video ref={videoRef} style={{ display: 'none' }} autoPlay></video>
     </div>

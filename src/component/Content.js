@@ -5,7 +5,7 @@ import ChooseImage from './ChooseImage'
 const Content = () => {
   return (
     <div className='row'>
-        <div className='col-md-6 col-12'>
+        <div className='col-md-4 col-12'>
           <ChooseImage />
         </div>
         <Measurement />
