@@ -10,13 +10,17 @@ const Measurement = () => {
         <h2 className='fs-4 bg-danger-subtle rounded p-2'>Volume:</h2>
         <div className = 'volume row mb-4'>
           {volumeFields.map((field) => {
-            return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`col-sm-6 col-12`} tooltip={field.tooltip} img={field.img}/>;
+            return <Field
+              field={field}
+              col={'col-sm-6 col-12'} />
           })}
         </div>
         <h2 className='fs-4 bg-danger-subtle rounded p-2'>Linear:</h2>
         <div className = 'linear row'>
           {linearFields.map((field) => {
-              return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`col-sm-6 col-12`} tooltip={field.tooltip}/>;
+              return <Field
+                field={field}
+                col={'col-sm-6 col-12'} />
           })}
         </div>
 
