@@ -8,10 +8,10 @@ const Header = () => {
 
   return (
     <div className='row container-fluid'>
-      <h1 className='bg-success-subtle fixed-top text-center fw-semibold py-2'>Collect Data</h1>
+      <h1 className='bg-info-subtle fixed-top text-center fw-semibold py-2'>Collect Data</h1>
       <div className='info d-flex justify-content-around pt-8'>
         {infoFields.map((field) => {
-          return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`col-3 field`}/>;
+          return <Field key={field.id} id={field.id} name={field.name} placeholder={field.placeholder} require={field.require} col={`field`}/>;
         })}
       </div>
     </div>
