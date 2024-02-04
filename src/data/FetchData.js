@@ -4,19 +4,22 @@ export const data = {
             id: `name`,
             name: 'Name',
             placeholder: 'Name',
-            require: false
+            require: false,
+            tooltip: false
         },
         'height' : {
             id: 'height',
             name: 'Height',
             placeholder: 'Height(cm)',
-            require: true
+            require: true,
+            tooltip: false
         },
         'weight' : {
             id: 'weight',
             name: 'Weight',
             placeholder: 'Weight(Kg)',
-            require: true
+            require: true,
+            tooltip: false
         }
     },
     'volume' : {
@@ -24,13 +27,18 @@ export const data = {
             id: 'bust',
             name: 'Bust girth',
             placeholder: 'Bust girth(cm)',
-            require: true
+            require: true,
+            decs: "Vai",
+            // img: `../picture/1.jpg`,
+            tooltip: true,
+           
         },
         'waist' : {
             id: 'waist',
             name: 'Waist girth',
             placeholder: 'Waist girth(cm)',
-            require: true
+            require: true,
+            tooltip: true
         },
         'hip' : {
             id: 'hip',
