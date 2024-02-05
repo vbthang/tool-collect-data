@@ -4,7 +4,7 @@ export const data = {
             id: `name`,
             name: 'Name',
             placeholder: 'Name',
-            require: false,
+            require: true,
             tooltip: false
         },
         'height' : {
@@ -50,8 +50,7 @@ export const data = {
             id: 'upper_hip_girth',
             name: 'Upper hip girth',
             placeholder: 'Upper hip girth(cm)',
-            // image: 'upper_hip_girth.jpg', FIX
-            image: 'waist_girth.jpg',
+            image: 'upper_hip_girth.jpg', 
             require: true,
             tooltip: true
         },
@@ -124,7 +123,7 @@ export const data = {
             name: 'Armscye girth',
             placeholder: 'Armscye girth(cm)',
             image: 'armscye_girth.jpg',
-            require: true,
+            require: false,
             tooltip: true
         },
         'neck_girth' : {
@@ -178,8 +177,8 @@ export const data = {
             require: true,
             tooltip: true
         },
-        'front_shoulder' : {
-            id: 'front_shoulder',
+        'front_shoulder_width' : {
+            id: 'front_shoulder_width',
             name: 'Front shoulder width',
             placeholder: 'Front shoulder width(cm)',
             image: 'front_shoulder_width.jpg',
@@ -208,6 +207,14 @@ export const data = {
             name: 'Neck base width',
             placeholder: 'Neck base width(cm)',
             image: 'neck_base_width.jpg',
+            require: true,
+            tooltip: true
+        },
+        'back_neck_point_to_waist' : {
+            id: 'back_neck_point_to_waist',
+            name: 'Back neck point to waist',
+            placeholder: 'Back neck point to waist(cm)',
+            image: 'back_neck_point_to_waist.jpg',
             require: true,
             tooltip: true
         },

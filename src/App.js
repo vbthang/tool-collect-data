@@ -1,6 +1,5 @@
 import Content from './component/Content';
 import Header from './component/Header';
-import Measurement from './component/Measurement';
 import Footer from './component/Footer';
 
 function App() {

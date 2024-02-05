@@ -35,61 +35,6 @@ const FieldImage = (props) => {
     return allowedExtensions.includes(extension);
   };
 
-  const cameraButtonClick = () => {
-    try {
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then((stream) => {
-          if (videoRef.current) {
-            videoRef.current.srcObject = stream;
-            // Thêm sự kiện loadedmetadata để đảm bảo rằng kích thước video đã sẵn sàng
-            videoRef.current.addEventListener('loadedmetadata', () => {
-              capturePhoto(); // Gọi hàm capturePhoto khi kích thước video sẵn sàng
-            });
-          }
-        })
-        .catch((error) => {
-          console.error("Error opening camera:", error);
-        });
-    } catch (error) {
-      console.error("Error accessing getUserMedia:", error);
-    }
-  };
-
-  const capturePhoto = () => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    canvas.width = videoRef.current.videoWidth;
-    canvas.height = videoRef.current.videoHeight;
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-    const imageDataURL = canvas.toDataURL('image/png');
-    const blob = dataURLtoBlob(imageDataURL);
-    const file = new File([blob], 'picture.png', { type: 'image/png' });
-
-    setSelectedFileName(file.name);
-    saveToFile(file);
-  };
-
-  const dataURLtoBlob = (dataURL) => {
-    const arr = dataURL.split(',');
-    const mime = arr[0].match(/:(.*?);/)[1];
-    const bstr = atob(arr[1]);
-    let n = bstr.length;
-    const u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], { type: mime });
-  };
-
-  const saveToFile = (file) => {
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(file);
-    link.download = file.name;
-    link.click();
-  };
-
-
   return (
     <div className='fieldimage d-flex row container-fluid justify-content-around'>
       <div className='col-7'>

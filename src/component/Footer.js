@@ -6,7 +6,10 @@ function getValueFromFields(fields, category, db) {
     const inputElem = document.getElementById(key)
     const inputValue = inputElem.value;
     if (inputElem.required) 
-      if (inputValue === '') throw new Error('Not have value')
+      if (inputValue === '') {
+        alert(`${key} is required`);
+        // throw new Error('Not have value');
+    }
     const parsedValue = parseFloat(inputValue);
 
     if (!isNaN(parsedValue)) {
@@ -21,17 +24,17 @@ const chooseButtonClick = (e) => {
   
   const db = {
     'info': {},
-    'linear': {},
     'volume': {},
+    'linear': {},
     'image': {}
   };
   const info = data['info'];
-  const linear = data['linear'];
   const volume = data['volume'];
+  const linear = data['linear'];
   try {
     getValueFromFields(info, 'info', db);
-    getValueFromFields(linear, 'linear', db);
     getValueFromFields(volume, 'volume', db);
+    getValueFromFields(linear, 'linear', db);
     console.log(db);
     e.preventDefault();
   } catch (error) {
@@ -42,9 +45,9 @@ const chooseButtonClick = (e) => {
 const Footer = () => {
   return (
     <div>
-      <div className='footer'>
-        <button id='btn' className='fw-bold fs-5' onClick={chooseButtonClick}>Submit</button>
-      </div>
+      {/* <div className='footer'> */}
+        <input id='btn' type='submit' value={'Send'} className='fw-bold fs-5' onClick={chooseButtonClick}></input>
+      {/* </div> */}
     </div>
   )
 }
