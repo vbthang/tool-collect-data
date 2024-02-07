@@ -7,8 +7,8 @@ function getValueFromFields(fields, category, db) {
     const inputValue = inputElem.value;
     if (inputElem.required) 
       if (inputValue === '') {
-        alert(`${key} is required`);
-        // throw new Error('Not have value');
+        alert(`${fields[key]['name']} is required`);
+        throw new Error('Not have value');
     }
     const parsedValue = parseFloat(inputValue);
 
@@ -45,9 +45,9 @@ const chooseButtonClick = (e) => {
 const Footer = () => {
   return (
     <div>
-      {/* <div className='footer'> */}
-        <input id='btn' type='submit' value={'Send'} className='fw-bold fs-5' onClick={chooseButtonClick}></input>
-      {/* </div> */}
+      <div className='footer'>
+        <button id='btn' className='fw-bold fs-5' onClick={chooseButtonClick}>Submit</button>
+      </div>
     </div>
   )
 }
