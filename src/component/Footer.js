@@ -20,8 +20,43 @@ function getValueFromFields(fields, category, db) {
   }
 }
 
-const chooseButtonClick = (e) => {
-  
+const convertBase64 = (file) => {
+  return new Promise((resolve, reject)=>{
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+
+const getBase64 = async () => {
+  try {
+    let frontBase64 = await convertBase64(document.getElementById('frontImg').files[0]);
+    let backBase64 = await convertBase64(document.getElementById('backImg').files[0]);
+    let sideBase64 = await convertBase64(document.getElementById('sideImg').files[0]);
+
+    let frontStr = frontBase64.split(',')[1];
+    let backStr = backBase64.split(',')[1];
+    let sideStr = sideBase64.split(',')[1];
+
+    return {
+      front: frontStr,
+      back: backStr,
+      side: sideStr
+    };
+  } catch (error) {
+    console.error('Error:', error);
+    return null;
+  }
+}
+
+const chooseButtonClick = async (e) => {
+  e.preventDefault();
   const db = {
     'info': {},
     'volume': {},
@@ -35,8 +70,18 @@ const chooseButtonClick = (e) => {
     getValueFromFields(info, 'info', db);
     getValueFromFields(volume, 'volume', db);
     getValueFromFields(linear, 'linear', db);
-    console.log(db);
-    e.preventDefault();
+    const image = await getBase64()
+    db['image'] = image
+    
+    const data = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(db)
+    };
+    fetch('http://127.0.0.1:6868/bodydata', data)
+    .then(response => response.json()) // Chuyển đổi response sang dạng JSON
+    .then(data => console.log(data)) // Xử lý dữ liệu JSON
+    .catch(error => console.error('Error:', error)); 
   } catch (error) {
     console.error(error);
   }

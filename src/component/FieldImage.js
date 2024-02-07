@@ -13,13 +13,13 @@ const FieldImage = (props) => {
   const uploadImage = async(e) => {
     const selectedFile = e.target.files[0];
     const base64 = await convertBase64(selectedFile);
-    console.log(base64);
+    // console.log(base64);
     setBaseImage(base64);
 
     //chuyển từ base64 sang ảnh
     base64ToImage(base64)
     .then((image) => {
-      console.log("Converted image:", image);
+      // console.log("Converted image:", image);
       // document.body.appendChild(image); // Thêm hình ảnh vào trang web
     })
     .catch((error) => {
@@ -83,7 +83,7 @@ const base64ToImage = (base64String) => {
     <div className='fieldimage d-flex row container-fluid justify-content-around'>
       <div className='image col-7'>
         <h4>{props.name}</h4>
-        <input id={props.name} type="file" ref={fileInput} style={{ display: 'none' }} onChange={(e) => {
+        <input id={props.id} type="file" ref={fileInput} style={{ display: 'none' }} onChange={(e) => {
           uploadImage(e);
         }} />
         <br></br>
