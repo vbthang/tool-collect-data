@@ -4,17 +4,32 @@ const FieldImage = (props) => {
   const fileInput = useRef(null);
   const videoRef = useRef(null);
   const [selectedFileName, setSelectedFileName] = useState('');
+  const [baseImage, setBaseImage] = useState('');
 
   const chooseButtonClick = () => {
     fileInput.current.click();
   };
 
-  const FileChange = (event) => {
-    const selectedFile = event.target.files[0];
+  const uploadImage = async(e) => {
+    const selectedFile = e.target.files[0];
+    const base64 = await convertBase64(selectedFile);
+    console.log(base64);
+    setBaseImage(base64);
+
+    //chuyển từ base64 sang ảnh
+    base64ToImage(base64)
+    .then((image) => {
+      console.log("Converted image:", image);
+      // document.body.appendChild(image); // Thêm hình ảnh vào trang web
+    })
+    .catch((error) => {
+      console.error("Error converting base64 to image:", error);
+    });
+
+
 
     if (selectedFile) {
       const fileName = selectedFile.name;
-
       // Kiểm tra xem tên đuôi có phải là ảnh hay không
       if (isImageFile(fileName)) {
         setSelectedFileName(fileName);
@@ -27,6 +42,35 @@ const FieldImage = (props) => {
       }
     }
   };
+
+
+const convertBase64 = (file) => {
+  return new Promise((resolve, reject)=>{
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+
+
+const base64ToImage = (base64String) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve(img);
+    };
+    img.onerror = (error) => {
+      reject(error);
+    };
+    img.src = base64String;
+  });
+};
 
    // Hàm kiểm tra xem tên đuôi có phải là ảnh hay không
    const isImageFile = (fileName) => {
@@ -92,9 +136,13 @@ const FieldImage = (props) => {
 
   return (
     <div className='fieldimage d-flex row container-fluid justify-content-around'>
-      <div className='col-7'>
+      <div className='image col-7'>
         <h4>{props.name}</h4>
-        <input type="file" ref={fileInput} style={{ display: 'none' }} onChange={FileChange} />
+        <input id={props.name} type="file" ref={fileInput} style={{ display: 'none' }} onChange={(e) => {
+          uploadImage(e);
+        }} />
+        <br></br>
+        {/* <img src={baseImage} height="200px" /> */}
         <input type="text" value={selectedFileName} readOnly onClick={chooseButtonClick} />
       </div>
 
