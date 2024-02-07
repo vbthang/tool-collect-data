@@ -8,14 +8,17 @@ const Field = (props) => {
     if(field.tooltip) {
         const i1 = require(`../image/${field.image}`)
         tooltip = <Tooltip anchorSelect={`#label${field.id}`} opacity={1} place="top" effect="solid">
-        {<img src={i1} alt='img' width={'300px'}/>} 
+        {<img src={i1} alt='img' width={'200px'}/>} 
         </Tooltip>
     } 
-
+    let required = null
+    if(field.require){
+        required = <span className='text-danger'>*</span>
+    }
     return (
         <div className={col}>
         <h3 className='label fs-5' id = {`label${field.id}`}>
-            {field.name}    
+            {field.name}  {required}  
         </h3>
         {tooltip}
         <input id={`${field.id}`} placeholder={field.placeholder} type="text" required={field.require} />
