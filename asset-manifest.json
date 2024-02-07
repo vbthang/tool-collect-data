@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tool-collect-data/static/css/main.f1ca1c35.css",
-    "main.js": "/tool-collect-data/static/js/main.746402b0.js",
+    "main.js": "/tool-collect-data/static/js/main.aa6dbc5b.js",
     "static/media/bust_girth.jpg": "/tool-collect-data/static/media/bust_girth.d9be1b4aa9a91b8b7eb3.jpg",
     "static/media/under_bust_girth.jpg": "/tool-collect-data/static/media/under_bust_girth.b1fc39b3e6ac7c825d1d.jpg",
     "static/media/back_neck_point_to_waist.jpg": "/tool-collect-data/static/media/back_neck_point_to_waist.7d032933e1c817664e09.jpg",
     "index.html": "/tool-collect-data/index.html",
     "main.f1ca1c35.css.map": "/tool-collect-data/static/css/main.f1ca1c35.css.map",
-    "main.746402b0.js.map": "/tool-collect-data/static/js/main.746402b0.js.map"
+    "main.aa6dbc5b.js.map": "/tool-collect-data/static/js/main.aa6dbc5b.js.map"
   },
   "entrypoints": [
     "static/css/main.f1ca1c35.css",
-    "static/js/main.746402b0.js"
+    "static/js/main.aa6dbc5b.js"
   ]
 }
