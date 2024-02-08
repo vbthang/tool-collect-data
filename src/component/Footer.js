@@ -78,7 +78,7 @@ const chooseButtonClick = async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(db)
     };
-    fetch('http://157.245.62.184:6868/bodydata', data)
+    fetch('https://thangvb.io.vn/bodydata', data)
     .then(response => response.json()) // Chuyển đổi response sang dạng JSON
     .then(data => console.log(data)) // Xử lý dữ liệu JSON
     .catch(error => console.error('Error:', error)); 
