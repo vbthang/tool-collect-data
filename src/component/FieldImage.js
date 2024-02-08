@@ -6,7 +6,8 @@ const FieldImage = (props) => {
   const [selectedFileName, setSelectedFileName] = useState('');
   const [baseImage, setBaseImage] = useState('');
 
-  const chooseButtonClick = () => {
+  const chooseButtonClick = (e) => {
+    e.preventDefault();
     fileInput.current.click();
   };
 
@@ -38,7 +39,7 @@ const FieldImage = (props) => {
         }
       } else {
         // Nếu không phải ảnh, bạn có thể xử lý tùy ý, ví dụ, thông báo cho người dùng
-        alert('Chỉ chấp nhận tệp hình ảnh');
+        alert('Chỉ chấp nhận tệp hình ảnh dạng jpg');
       }
     }
   };
@@ -74,26 +75,24 @@ const base64ToImage = (base64String) => {
 
    // Hàm kiểm tra xem tên đuôi có phải là ảnh hay không
    const isImageFile = (fileName) => {
-    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+    const allowedExtensions = ['jpg'];
     const extension = fileName.split('.').pop().toLowerCase();
     return allowedExtensions.includes(extension);
   };
 
   return (
     <div className='fieldimage d-flex row container-fluid justify-content-around'>
-      <div className='image col-7'>
+      <div className='image col-7 mb-2'>
         <h4>{props.name}</h4>
         <input id={props.id} type="file" ref={fileInput} style={{ display: 'none' }} onChange={(e) => {
           uploadImage(e);
         }} />
-        <br></br>
-        {/* <img src={baseImage} height="200px" /> */}
-        <input type="text" value={selectedFileName} readOnly onClick={chooseButtonClick} />
+        {/* <br></br> */}
+        <input type="text" value={selectedFileName} readOnly onClick={chooseButtonClick} placeholder='Click here'/>
       </div>
 
       <div className='button mt-2 col-5'>
-        <button onClick={chooseButtonClick}>Choose</button>
-        {/* <button onClick={cameraButtonClick}>Camera</button> */}
+        {/* <button onClick={chooseButtonClick}>Choose</button> */}
       </div>
       <video ref={videoRef} style={{ display: 'none' }} autoPlay></video>
     </div>

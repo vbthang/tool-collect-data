@@ -38,10 +38,6 @@ h1{
   }
 }
 
-h4{
-  padding: 10px 0;
-}
-
 input{
   width: 200px;
   border-radius: 5px;
@@ -103,12 +99,12 @@ button:hover{
   h4{
     width: 70px !important;
   }
-  .button{
+  /* .button{
     align-self:self-start;
-  }
+  } */
 }
 
-@media (min-width: 400px) {
+@media (min-width: 300px) {
   body {
     font-size: 12px; 
   }

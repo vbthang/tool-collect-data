@@ -13,7 +13,7 @@ const Measurement = () => {
             return <Field
               key={field.id}
               field={field}
-              col={'col-sm-6 col-12'} />
+              col={'col-sm-6 col-12 mb-2'} />
           })}
         </div>
         <h2 className='fs-4 bg-warning-subtle rounded p-2'>Linear:</h2>
@@ -22,7 +22,7 @@ const Measurement = () => {
               return <Field
                 key={field.id}
                 field={field}
-                col={'col-sm-6 col-12'} />
+                col={'col-sm-6 col-12 mb-2'} />
           })}
         </div>
 

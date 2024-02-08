@@ -79,12 +79,29 @@ const chooseButtonClick = async (e) => {
       body: JSON.stringify(db)
     };
     fetch('https://thangvb.io.vn/bodydata', data)
-    .then(response => response.json()) // Chuyển đổi response sang dạng JSON
+    .then(response => {
+      if (response.status === 200) {
+        alert('OK');
+        clearFormFields();
+      }
+      return response.json(); // Chuyển đổi response sang dạng JSON
+    })
     .then(data => console.log(data)) // Xử lý dữ liệu JSON
     .catch(error => console.error('Error:', error)); 
   } catch (error) {
     console.error(error);
   }
+};
+
+const clearFormFields = () => {
+  const fields = document.querySelectorAll('input[type="text"]');
+  fields.forEach(field => {
+    field.value = '';
+  });
+
+  document.getElementById('frontImg').value = null;
+  document.getElementById('backImg').value = null;
+  document.getElementById('sideImg').value = null;
 };
 
 const Footer = () => {
