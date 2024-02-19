@@ -39,7 +39,7 @@ const FieldImage = (props) => {
         }
       } else {
         // Nếu không phải ảnh, bạn có thể xử lý tùy ý, ví dụ, thông báo cho người dùng
-        alert('Chỉ chấp nhận tệp hình ảnh dạng jpg');
+        alert('Chỉ chấp nhận tệp hình ảnh');
       }
     }
   };
@@ -75,7 +75,7 @@ const base64ToImage = (base64String) => {
 
    // Hàm kiểm tra xem tên đuôi có phải là ảnh hay không
    const isImageFile = (fileName) => {
-    const allowedExtensions = ['jpg'];
+    const allowedExtensions = ['jpg', 'png', 'gif', 'jpeg'];
     const extension = fileName.split('.').pop().toLowerCase();
     return allowedExtensions.includes(extension);
   };

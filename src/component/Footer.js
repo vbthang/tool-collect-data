@@ -34,11 +34,48 @@ const convertBase64 = (file) => {
   });
 };
 
+const resizeImageIfNeeded = async (file) => {
+  const maxSize = 5 * 1024 * 1024; // 5MB
+
+  if (file.size <= maxSize) {
+    return file;
+  } else {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    return new Promise((resolve, reject) => {
+      reader.onload = (event) => {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          const scaleFactor = maxSize / file.size;
+          const newWidth = Math.floor(img.width * scaleFactor);
+          const newHeight = Math.floor(img.height * scaleFactor);
+
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+
+          ctx.drawImage(img, 0, 0, newWidth, newHeight);
+          canvas.toBlob((blob) => {
+            resolve(new File([blob], file.name, { type: file.type }));
+          }, file.type);
+        };
+      };
+    });
+  }
+};
+
 const getBase64 = async () => {
   try {
-    let frontBase64 = await convertBase64(document.getElementById('frontImg').files[0]);
-    let backBase64 = await convertBase64(document.getElementById('backImg').files[0]);
-    let sideBase64 = await convertBase64(document.getElementById('sideImg').files[0]);
+    let frontFile = await resizeImageIfNeeded(document.getElementById('frontImg').files[0]);
+    let backFile = await resizeImageIfNeeded(document.getElementById('backImg').files[0]);
+    let sideFile = await resizeImageIfNeeded(document.getElementById('sideImg').files[0]);
+
+    let frontBase64 = await convertBase64(frontFile);
+    let backBase64 = await convertBase64(backFile);
+    let sideBase64 = await convertBase64(sideFile);
 
     let frontStr = frontBase64.split(',')[1];
     let backStr = backBase64.split(',')[1];
@@ -53,7 +90,7 @@ const getBase64 = async () => {
     console.error('Error:', error);
     return null;
   }
-}
+};
 
 const chooseButtonClick = async (e) => {
   e.preventDefault();
